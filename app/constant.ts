@@ -73,7 +73,7 @@ Knowledge cutoff: 2021-09
 Current model: {{model}}
 Current time: {{time}}`;
 
-export const SUMMARIZE_MODEL = "qwen-v1";
+export const SUMMARIZE_MODEL = "qwen-turbo";
 
 export const DEFAULT_MODELS = [
   {
@@ -110,6 +110,22 @@ export const DEFAULT_MODELS = [
   },
   {
     name: "gpt-3.5-turbo-0613",
+    available: true,
+  },
+  {
+    name: "qwen-turbo",
+    available: true,
+  },
+  {
+    name: "qwen-7b-chat",
+    available: true,
+  },
+  {
+    name: "qwen-14b-chat",
+    available: true,
+  },
+  {
+    name: "qwen-plus",
     available: true,
   },
   {
