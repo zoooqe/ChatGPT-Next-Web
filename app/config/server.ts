@@ -30,7 +30,7 @@ declare global {
       // qwen only
       QWEN_URL?: string; // https://dashscope.aliyuncs.com
       QWEN_API_KEY?: string;
-      QWEN_API_VERSION?: string;
+      //QWEN_API_VERSION?: string;
     }
   }
 }
@@ -81,7 +81,7 @@ export const getServerSideConfig = () => {
     isQwen,
     qwenUrl: process.env.QWEN_URL,
     qwenApiKey: process.env.QWEN_API_KEY,
-    qwenApiVersion: process.env.QWEN_API_VERSION,
+    //qwenApiVersion: process.env.QWEN_API_VERSION,
 
     needCode: ACCESS_CODES.size > 0,
     code: process.env.CODE,

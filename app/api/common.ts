@@ -39,7 +39,7 @@ export async function requestOpenai(req: NextRequest) {
     10 * 60 * 1000,
   );
 
-  if (serverConfig.isQwen) {
+  /* if (serverConfig.isQwen) {
     if (!serverConfig.qwenApiVersion) {
       return NextResponse.json({
         error: true,
@@ -47,7 +47,7 @@ export async function requestOpenai(req: NextRequest) {
       });
     }
     path = makeQwenPath(path, serverConfig.qwenApiVersion);
-  }
+  } */
 
   const fetchUrl = `${baseUrl}/${path}`;
   const fetchOptions: RequestInit = {

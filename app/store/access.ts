@@ -32,7 +32,7 @@ const DEFAULT_ACCESS_STATE = {
   // qwen
   qwenUrl: "https://dashscope.aliyuncs.com",
   qwenApiKey: "sk-b1f6f74c9b38442f8681a97ffc734bfe",
-  qwenApiVersion: "",
+  //qwenApiVersion: "",
 
   // server config
   needCode: true,
@@ -62,7 +62,7 @@ export const useAccessStore = createPersistStore(
     }, */
 
     isValidQwen() {
-      return ensure(get(), ["qwenUrl", "qwenApiKey", "qwenApiVersion"]);
+      return ensure(get(), ["qwenUrl", "qwenApiKey"]);
     },
 
     isAuthorized() {
@@ -109,11 +109,11 @@ export const useAccessStore = createPersistStore(
           token: string;
           openaiApiKey: string;
           //azureApiVersion: string;
-          qwenApiVersion: string;
+          //qwenApiVersion: string;
         };
         state.openaiApiKey = state.token;
         //state.azureApiVersion = "2023-08-01-preview";
-        state.qwenApiVersion = "";
+        //state.qwenApiVersion = "";
       }
 
       return persistedState as any;

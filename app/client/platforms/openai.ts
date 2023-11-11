@@ -68,9 +68,9 @@ export class ChatGPTApi implements LLMApi {
       path = makeAzurePath(path, accessStore.azureApiVersion);
     } */
 
-    if (isQwen) {
+    /* if (isQwen) {
       path = makeQwenPath(path, accessStore.qwenApiVersion);
-    }
+    } */
 
     return [baseUrl, path].join("/");
   }
