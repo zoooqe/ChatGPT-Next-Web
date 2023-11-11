@@ -1032,7 +1032,7 @@ export function Settings() {
                           Locale.Settings.Access.Qwen.ApiVerion.SubTitle
                         }
                       >
-                        <input
+                        {/* <input
                           type="text"
                           value={accessStore.qwenApiVersion}
                           placeholder=""
@@ -1042,7 +1042,7 @@ export function Settings() {
                                 (access.qwenApiVersion = e.currentTarget.value),
                             )
                           }
-                        ></input>
+                        ></input> */}
                       </ListItem>
                     </>
                   )}
