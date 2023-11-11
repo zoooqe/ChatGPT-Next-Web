@@ -29,6 +29,11 @@ const DEFAULT_ACCESS_STATE = {
   azureApiKey: "",
   azureApiVersion: "2023-08-01-preview",
 
+  // qwen
+  qwenUrl: "https://dashscope.aliyuncs.com",
+  qwenApiKey: "sk-b1f6f74c9b38442f8681a97ffc734bfe",
+  qwenApiVersion: "",
+
   // server config
   needCode: true,
   hideUserApiKey: false,
@@ -56,6 +61,10 @@ export const useAccessStore = createPersistStore(
       return ensure(get(), ["azureUrl", "azureApiKey", "azureApiVersion"]);
     },
 
+    isValidQwen() {
+      return ensure(get(), ["qwenUrl", "qwenApiKey", "qwenApiVersion"]);
+    },
+
     isAuthorized() {
       this.fetch();
 
@@ -63,6 +72,7 @@ export const useAccessStore = createPersistStore(
       return (
         this.isValidOpenAI() ||
         this.isValidAzure() ||
+        this.isValidQwen() ||
         !this.enabledAccessControl() ||
         (this.enabledAccessControl() && ensure(get(), ["accessCode"]))
       );
@@ -99,9 +109,11 @@ export const useAccessStore = createPersistStore(
           token: string;
           openaiApiKey: string;
           azureApiVersion: string;
+          qwenApiVersion: string;
         };
         state.openaiApiKey = state.token;
         state.azureApiVersion = "2023-08-01-preview";
+        state.qwenApiVersion = "";
       }
 
       return persistedState as any;
