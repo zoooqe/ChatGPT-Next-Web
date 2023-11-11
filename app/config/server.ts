@@ -26,6 +26,11 @@ declare global {
       AZURE_URL?: string; // https://{azure-url}/openai/deployments/{deploy-name}
       AZURE_API_KEY?: string;
       AZURE_API_VERSION?: string;
+
+      // qwen only
+      QWEN_URL?: string; // https://dashscope.aliyuncs.com
+      QWEN_API_KEY?: string;
+      QWEN_API_VERSION?: string;
     }
   }
 }
@@ -61,6 +66,7 @@ export const getServerSideConfig = () => {
   }
 
   const isAzure = !!process.env.AZURE_URL;
+  const isQwen = !!process.env.QWEN_URL;
 
   return {
     baseUrl: process.env.BASE_URL,
@@ -71,6 +77,11 @@ export const getServerSideConfig = () => {
     azureUrl: process.env.AZURE_URL,
     azureApiKey: process.env.AZURE_API_KEY,
     azureApiVersion: process.env.AZURE_API_VERSION,
+
+    isQwen,
+    qwenUrl: process.env.QWEN_URL,
+    qwenApiKey: process.env.QWEN_API_KEY,
+    qwenApiVersion: process.env.QWEN_API_VERSION,
 
     needCode: ACCESS_CODES.size > 0,
     code: process.env.CODE,

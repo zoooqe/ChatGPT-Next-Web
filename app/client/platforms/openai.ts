@@ -17,6 +17,7 @@ import {
 import { prettyObject } from "@/app/utils/format";
 import { getClientConfig } from "@/app/config/client";
 import { makeAzurePath } from "@/app/azure";
+import { makeQwenPath } from "@/app/qwen";
 
 export interface OpenAIListModelResponse {
   object: string;
@@ -35,13 +36,21 @@ export class ChatGPTApi implements LLMApi {
 
     const isAzure = accessStore.provider === ServiceProvider.Azure;
 
+    const isQwen = accessStore.provider === ServiceProvider.Qwen;
+
     if (isAzure && !accessStore.isValidAzure()) {
       throw Error(
         "incomplete azure config, please check it in your settings page",
       );
     }
 
-    let baseUrl = isAzure ? accessStore.azureUrl : accessStore.openaiUrl;
+    if (isQwen && !accessStore.isValidQwen()) {
+      throw Error(
+        "incomplete qwen config, please check it in your settings page",
+      );
+    }
+
+    let baseUrl = isAzure ? accessStore.azureUrl : ( isQwen ? accessStore.qwenUrl : accessStore.openaiUrl );
 
     if (baseUrl.length === 0) {
       const isApp = !!getClientConfig()?.isApp;
@@ -57,6 +66,10 @@ export class ChatGPTApi implements LLMApi {
 
     if (isAzure) {
       path = makeAzurePath(path, accessStore.azureApiVersion);
+    }
+
+    if (isQwen) {
+      path = makeQwenPath(path, accessStore.qwenApiVersion);
     }
 
     return [baseUrl, path].join("/");

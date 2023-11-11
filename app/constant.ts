@@ -65,6 +65,7 @@ export const EXPORT_MESSAGE_CLASS_NAME = "export-markdown";
 export enum ServiceProvider {
   OpenAI = "OpenAI",
   Azure = "Azure",
+  Qwen = "Qwen",
 }
 
 export const OpenaiPath = {
@@ -149,6 +150,22 @@ export const DEFAULT_MODELS = [
   },
   {
     name: "gpt-3.5-turbo-16k-0613",
+    available: true,
+  },
+  {
+    name: "qwen-turbo",
+    available: true,
+  },
+  {
+    name: "qwen-plus",
+    available: true,
+  },
+  {
+    name: "qwen-7b-chat",
+    available: true,
+  },
+  {
+    name: "qwen-14b-chat",
     available: true,
   },
 ] as const;
