@@ -277,7 +277,7 @@ const cn = {
       },
       CustomEndpoint: {
         Title: "自定义接口",
-        SubTitle: "是否使用自定义 Azure 或 OpenAI 服务",
+        SubTitle: "是否使用自定义 Qwen 或 OpenAI 服务",
       },
       Provider: {
         Title: "模型服务商",
@@ -295,11 +295,11 @@ const cn = {
           SubTitle: "除默认地址外，必须包含 http(s)://",
         },
       },
-      Azure: {
+      Qwen: {
         ApiKey: {
           Title: "接口密钥",
-          SubTitle: "使用自定义 Azure Key 绕过密码访问限制",
-          Placeholder: "Azure API Key",
+          SubTitle: "使用自定义 Qwen Key 绕过密码访问限制",
+          Placeholder: "Qwen API Key",
         },
 
         Endpoint: {
@@ -308,7 +308,7 @@ const cn = {
         },
 
         ApiVerion: {
-          Title: "接口版本 (azure api version)",
+          Title: "接口版本 (qwen api version)",
           SubTitle: "选择指定的部分版本",
         },
       },

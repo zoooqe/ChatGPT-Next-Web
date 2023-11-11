@@ -280,11 +280,11 @@ const en: LocaleType = {
       },
       CustomEndpoint: {
         Title: "Custom Endpoint",
-        SubTitle: "Use custom Azure or OpenAI service",
+        SubTitle: "Use custom Qwen or OpenAI service",
       },
       Provider: {
         Title: "Model Provider",
-        SubTitle: "Select Azure or OpenAI",
+        SubTitle: "Select Qwen or OpenAI",
       },
       OpenAI: {
         ApiKey: {
@@ -298,21 +298,21 @@ const en: LocaleType = {
           SubTitle: "Must starts with http(s):// or use /api/openai as default",
         },
       },
-      Azure: {
+      Qwen: {
         ApiKey: {
-          Title: "Azure Api Key",
-          SubTitle: "Check your api key from Azure console",
-          Placeholder: "Azure Api Key",
+          Title: "Qwen Api Key",
+          SubTitle: "Check your api key from Qwen console",
+          Placeholder: "Qwen Api Key",
         },
 
         Endpoint: {
-          Title: "Azure Endpoint",
+          Title: "Qwen Endpoint",
           SubTitle: "Example: ",
         },
 
         ApiVerion: {
-          Title: "Azure Api Version",
-          SubTitle: "Check your api version from azure console",
+          Title: "Qwen Api Version",
+          SubTitle: "Check your api version from qwen console",
         },
       },
       CustomModel: {
