@@ -1,5 +1,5 @@
 import { getClientConfig } from "../config/client";
-import { ACCESS_CODE_PREFIX, Azure, Qwen, ServiceProvider } from "../constant";
+import { ACCESS_CODE_PREFIX, Qwen, ServiceProvider } from "../constant";
 import { ChatMessage, ModelType, useAccessStore } from "../store";
 import { ChatGPTApi } from "./platforms/openai";
 
@@ -49,7 +49,7 @@ export abstract class LLMApi {
   abstract models(): Promise<LLMModel[]>;
 }
 
-type ProviderName = "openai" | "qwen" | "azure" | "claude" | "palm";
+type ProviderName = "openai" | "qwen" | "claude" | "palm";
 
 interface Model {
   name: string;
@@ -132,11 +132,11 @@ export function getHeaders() {
     "x-requested-with": "XMLHttpRequest",
   };
 
-  const isAzure = accessStore.provider === ServiceProvider.Azure;
-  const authHeader = isAzure ? "api-key" : "Authorization";
-  const apiKey = isAzure ? accessStore.azureApiKey : accessStore.openaiApiKey;
+  const isQwen = accessStore.provider === ServiceProvider.Qwen;
+  const authHeader = isQwen ? "api-key" : "Authorization";
+  const apiKey = isQwen ? accessStore.qwenApiKey : accessStore.openaiApiKey;
 
-  const makeBearer = (s: string) => `${isAzure ? "" : "Bearer "}${s.trim()}`;
+  const makeBearer = (s: string) => `${isQwen ? "" : "Bearer "}${s.trim()}`;
   const validString = (x: string) => x && x.length > 0;
 
   // use user's api key first

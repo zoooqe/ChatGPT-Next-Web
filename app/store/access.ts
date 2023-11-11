@@ -25,9 +25,9 @@ const DEFAULT_ACCESS_STATE = {
   openaiApiKey: "",
 
   // azure
-  azureUrl: "",
-  azureApiKey: "",
-  azureApiVersion: "2023-08-01-preview",
+  //azureUrl: "",
+  //azureApiKey: "",
+  //azureApiVersion: "2023-08-01-preview",
 
   // qwen
   qwenUrl: "https://dashscope.aliyuncs.com",
@@ -57,9 +57,9 @@ export const useAccessStore = createPersistStore(
       return ensure(get(), ["openaiUrl", "openaiApiKey"]);
     },
 
-    isValidAzure() {
+    /* isValidAzure() {
       return ensure(get(), ["azureUrl", "azureApiKey", "azureApiVersion"]);
-    },
+    }, */
 
     isValidQwen() {
       return ensure(get(), ["qwenUrl", "qwenApiKey", "qwenApiVersion"]);
@@ -71,7 +71,7 @@ export const useAccessStore = createPersistStore(
       // has token or has code or disabled access control
       return (
         this.isValidOpenAI() ||
-        this.isValidAzure() ||
+        //this.isValidAzure() ||
         this.isValidQwen() ||
         !this.enabledAccessControl() ||
         (this.enabledAccessControl() && ensure(get(), ["accessCode"]))
@@ -108,11 +108,11 @@ export const useAccessStore = createPersistStore(
         const state = persistedState as {
           token: string;
           openaiApiKey: string;
-          azureApiVersion: string;
+          //azureApiVersion: string;
           qwenApiVersion: string;
         };
         state.openaiApiKey = state.token;
-        state.azureApiVersion = "2023-08-01-preview";
+        //state.azureApiVersion = "2023-08-01-preview";
         state.qwenApiVersion = "";
       }
 

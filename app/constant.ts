@@ -64,7 +64,7 @@ export const EXPORT_MESSAGE_CLASS_NAME = "export-markdown";
 
 export enum ServiceProvider {
   OpenAI = "OpenAI",
-  Azure = "Azure",
+  //Azure = "Azure",
   Qwen = "Qwen",
 }
 
@@ -75,9 +75,9 @@ export const OpenaiPath = {
   ListModelPath: "v1/models",
 };
 
-export const Azure = {
+/* export const Azure = {
   ExampleEndpoint: "https://{resource-url}/openai/deployments/{deploy-id}",
-};
+}; */
 
 export const Qwen = {
   ExampleEndpoint: "",

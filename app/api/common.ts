@@ -2,7 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { getServerSideConfig } from "../config/server";
 import { DEFAULT_MODELS, OPENAI_BASE_URL } from "../constant";
 import { collectModelTable } from "../utils/model";
-import { makeAzurePath } from "../azure";
+//import { makeAzurePath } from "../azure";
+import { makeQwenPath } from "../qwen";
 
 const serverConfig = getServerSideConfig();
 
@@ -10,15 +11,14 @@ export async function requestOpenai(req: NextRequest) {
   const controller = new AbortController();
 
   const authValue = req.headers.get("Authorization") ?? "";
-  const authHeaderName = serverConfig.isAzure ? "api-key" : "Authorization";
+  const authHeaderName = serverConfig.isQwen ? "api-key" : "Authorization";
 
   let path = `${req.nextUrl.pathname}${req.nextUrl.search}`.replaceAll(
     "/api/openai/",
     "",
   );
 
-  let baseUrl =
-    serverConfig.azureUrl || serverConfig.baseUrl || OPENAI_BASE_URL;
+  let baseUrl = serverConfig.qwenUrl || serverConfig.baseUrl || OPENAI_BASE_URL;
 
   if (!baseUrl.startsWith("http")) {
     baseUrl = `https://${baseUrl}`;
@@ -39,14 +39,14 @@ export async function requestOpenai(req: NextRequest) {
     10 * 60 * 1000,
   );
 
-  if (serverConfig.isAzure) {
-    if (!serverConfig.azureApiVersion) {
+  if (serverConfig.isQwen) {
+    if (!serverConfig.qwenApiVersion) {
       return NextResponse.json({
         error: true,
-        message: `missing AZURE_API_VERSION in server env vars`,
+        message: `missing QWEN_API_VERSION in server env vars`,
       });
     }
-    path = makeAzurePath(path, serverConfig.azureApiVersion);
+    path = makeQwenPath(path, serverConfig.qwenApiVersion);
   }
 
   const fetchUrl = `${baseUrl}/${path}`;

@@ -51,7 +51,7 @@ import Locale, {
 import { copyToClipboard } from "../utils";
 import Link from "next/link";
 import {
-  Azure,
+  Qwen,
   OPENAI_BASE_URL,
   Path,
   RELEASE_URL,
@@ -586,7 +586,7 @@ export function Settings() {
     return (
       accessStore.hideBalanceQuery ||
       isOpenAiUrl ||
-      accessStore.provider === ServiceProvider.Azure
+      accessStore.provider === ServiceProvider.Qwen
     );
   }, [
     accessStore.hideBalanceQuery,
@@ -990,57 +990,56 @@ export function Settings() {
                   ) : (
                     <>
                       <ListItem
-                        title={Locale.Settings.Access.Azure.Endpoint.Title}
+                        title={Locale.Settings.Access.Qwen.Endpoint.Title}
                         subTitle={
-                          Locale.Settings.Access.Azure.Endpoint.SubTitle +
-                          Azure.ExampleEndpoint
+                          Locale.Settings.Access.Qwen.Endpoint.SubTitle +
+                          Qwen.ExampleEndpoint
                         }
                       >
                         <input
                           type="text"
-                          value={accessStore.azureUrl}
-                          placeholder={Azure.ExampleEndpoint}
+                          value={accessStore.qwenUrl}
+                          placeholder={Qwen.ExampleEndpoint}
                           onChange={(e) =>
                             accessStore.update(
                               (access) =>
-                                (access.azureUrl = e.currentTarget.value),
+                                (access.qwenUrl = e.currentTarget.value),
                             )
                           }
                         ></input>
                       </ListItem>
                       <ListItem
-                        title={Locale.Settings.Access.Azure.ApiKey.Title}
-                        subTitle={Locale.Settings.Access.Azure.ApiKey.SubTitle}
+                        title={Locale.Settings.Access.Qwen.ApiKey.Title}
+                        subTitle={Locale.Settings.Access.Qwen.ApiKey.SubTitle}
                       >
                         <PasswordInput
-                          value={accessStore.azureApiKey}
+                          value={accessStore.qwenApiKey}
                           type="text"
                           placeholder={
-                            Locale.Settings.Access.Azure.ApiKey.Placeholder
+                            Locale.Settings.Access.Qwen.ApiKey.Placeholder
                           }
                           onChange={(e) => {
                             accessStore.update(
                               (access) =>
-                                (access.azureApiKey = e.currentTarget.value),
+                                (access.qwenApiKey = e.currentTarget.value),
                             );
                           }}
                         />
                       </ListItem>
                       <ListItem
-                        title={Locale.Settings.Access.Azure.ApiVerion.Title}
+                        title={Locale.Settings.Access.Qwen.ApiVerion.Title}
                         subTitle={
-                          Locale.Settings.Access.Azure.ApiVerion.SubTitle
+                          Locale.Settings.Access.Qwen.ApiVerion.SubTitle
                         }
                       >
                         <input
                           type="text"
-                          value={accessStore.azureApiVersion}
-                          placeholder="2023-08-01-preview"
+                          value={accessStore.qwenApiVersion}
+                          placeholder=""
                           onChange={(e) =>
                             accessStore.update(
                               (access) =>
-                                (access.azureApiVersion =
-                                  e.currentTarget.value),
+                                (access.qwenApiVersion = e.currentTarget.value),
                             )
                           }
                         ></input>

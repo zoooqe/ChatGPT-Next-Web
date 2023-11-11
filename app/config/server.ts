@@ -23,9 +23,9 @@ declare global {
       CUSTOM_MODELS?: string; // to control custom models
 
       // azure only
-      AZURE_URL?: string; // https://{azure-url}/openai/deployments/{deploy-name}
-      AZURE_API_KEY?: string;
-      AZURE_API_VERSION?: string;
+      //AZURE_URL?: string; // https://{azure-url}/openai/deployments/{deploy-name}
+      //AZURE_API_KEY?: string;
+      //AZURE_API_VERSION?: string;
 
       // qwen only
       QWEN_URL?: string; // https://dashscope.aliyuncs.com
@@ -65,7 +65,7 @@ export const getServerSideConfig = () => {
       .join(",");
   }
 
-  const isAzure = !!process.env.AZURE_URL;
+  //const isAzure = !!process.env.AZURE_URL;
   const isQwen = !!process.env.QWEN_URL;
 
   return {
@@ -73,10 +73,10 @@ export const getServerSideConfig = () => {
     apiKey: process.env.OPENAI_API_KEY,
     openaiOrgId: process.env.OPENAI_ORG_ID,
 
-    isAzure,
+    /* isAzure,
     azureUrl: process.env.AZURE_URL,
     azureApiKey: process.env.AZURE_API_KEY,
-    azureApiVersion: process.env.AZURE_API_VERSION,
+    azureApiVersion: process.env.AZURE_API_VERSION, */
 
     isQwen,
     qwenUrl: process.env.QWEN_URL,
