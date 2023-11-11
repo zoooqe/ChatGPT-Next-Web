@@ -1,9 +1,9 @@
-export function makeQwenPath(path: string, apiVersion: string) {
+export function makeQwenPath(path: string) {
   // should omit /v1 prefix
-  path = path.replaceAll("v1/", "");
+  path = path.replaceAll("openai/", "");
 
   // should add api-key to query string
-  path += `${path.includes("?") ? "&" : "?"}api-version=${apiVersion}`;
+  //path += `${path.includes("?") ? "&" : "?"}api-version=${apiVersion}`;
 
   return path;
 }

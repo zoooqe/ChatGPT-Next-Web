@@ -39,15 +39,15 @@ export async function requestOpenai(req: NextRequest) {
     10 * 60 * 1000,
   );
 
-  /* if (serverConfig.isQwen) {
-    if (!serverConfig.qwenApiVersion) {
+  if (serverConfig.isQwen) {
+    /* if (!serverConfig.qwenApiVersion) {
       return NextResponse.json({
         error: true,
         message: `missing QWEN_API_VERSION in server env vars`,
       });
-    }
-    path = makeQwenPath(path, serverConfig.qwenApiVersion);
-  } */
+    } */
+    path = makeQwenPath(path);
+  }
 
   const fetchUrl = `${baseUrl}/${path}`;
   const fetchOptions: RequestInit = {

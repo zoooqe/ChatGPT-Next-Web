@@ -28,7 +28,7 @@ declare global {
       //AZURE_API_VERSION?: string;
 
       // qwen only
-      QWEN_URL?: string; // https://dashscope.aliyuncs.com
+      QWEN_URL?: string; // https://dashscope.aliyuncs.com/api/v1/services/aigc/text-generation/generation
       QWEN_API_KEY?: string;
       //QWEN_API_VERSION?: string;
     }
@@ -79,7 +79,7 @@ export const getServerSideConfig = () => {
     azureApiVersion: process.env.AZURE_API_VERSION, */
 
     isQwen,
-    qwenUrl: process.env.QWEN_URL,
+    qwenUrl: "https://dashscope.aliyuncs.com",
     qwenApiKey: process.env.QWEN_API_KEY,
     //qwenApiVersion: process.env.QWEN_API_VERSION,
 
