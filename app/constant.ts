@@ -129,6 +129,10 @@ export const DEFAULT_MODELS = [
     available: true,
   },
   {
+    name: "qwen-max",
+    available: true,
+  },
+  {
     name: "qwen-v1",
     available: true,
   },
