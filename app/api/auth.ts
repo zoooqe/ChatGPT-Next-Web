@@ -57,7 +57,7 @@ export function auth(req: NextRequest) {
       req.headers.set(
         "Authorization",
         `${serverConfig.isAzure ? "" : "Bearer "}${serverApiKey}`,
-        `${serverConfig.isQwen ? "" : "Bearer "}${serverApiKey}`
+        `${serverConfig.isQwen ? "" : "Bearer "}${serverApiKey}`,
       );
     } else {
       console.log("[Auth] admin did not provide an api key");
