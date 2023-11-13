@@ -80,14 +80,14 @@ export const DEFAULT_MODELS = [
     name: "gpt-4",
     available: true,
   },
-  {
-    name: "gpt-4-0314",
-    available: true,
-  },
-  {
-    name: "gpt-4-0613",
-    available: true,
-  },
+  // {
+  //   name: "gpt-4-0314",
+  //   available: true,
+  // },
+  // {
+  //   name: "gpt-4-0613",
+  //   available: true,
+  // },
   // {
   //   name: "gpt-4-32k",
   //   available: true,
@@ -104,12 +104,16 @@ export const DEFAULT_MODELS = [
     name: "gpt-3.5-turbo",
     available: true,
   },
+  // {
+  //   name: "gpt-3.5-turbo-0301",
+  //   available: true,
+  // },
+  // {
+  //   name: "gpt-3.5-turbo-0613",
+  //   available: true,
+  // },
   {
-    name: "gpt-3.5-turbo-0301",
-    available: true,
-  },
-  {
-    name: "gpt-3.5-turbo-0613",
+    name: "gpt-3.5-turbo-1106",
     available: true,
   },
   {
